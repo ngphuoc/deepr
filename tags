@@ -1,0 +1,26 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+a::Embed	/home/ngphuoc/git/deepr/utils.jl	/^(a::Embed)(x) = a.W[:,x]$/;"	f	language:julia
+Base.getindex	/home/ngphuoc/git/deepr/utils.jl	/^Base.getindex(c::Chain, i::AbstractArray) = Chain(c.layers[i]...)$/;"	f	language:julia
+c::Chain	/home/ngphuoc/git/deepr/utils.jl	/^(c::Chain)(x) = foldl((x, m) -> m(x), c.layers; init = x)$/;"	f	language:julia
+Chain	/home/ngphuoc/git/deepr/utils.jl	/^  Chain(xs...) = new([xs...])$/;"	f	language:julia
+Chain	/home/ngphuoc/git/deepr/utils.jl	/^struct Chain$/;"	f	language:julia
+Conv	/home/ngphuoc/git/deepr/utils.jl	/^struct Conv{F,A,V}$/;"	f	language:julia
+Dense	/home/ngphuoc/git/deepr/utils.jl	/^Dense(W, b) = Dense(W, b, identity)$/;"	f	language:julia
+Dense	/home/ngphuoc/git/deepr/utils.jl	/^function Dense(in::Integer, out::Integer, σ = identity)$/;"	f	language:julia
+Dense	/home/ngphuoc/git/deepr/utils.jl	/^struct Dense{F,S,T}$/;"	f	language:julia
+Embed	/home/ngphuoc/git/deepr/utils.jl	/^Embed(in::Integer, out::Integer) = Embed(param(out, in))$/;"	f	language:julia
+Embed	/home/ngphuoc/git/deepr/utils.jl	/^struct Embed{T}$/;"	f	language:julia
+for	/home/ngphuoc/git/deepr/deepr2.jl	/^  for (x,y)=dr$/;"	f	language:julia
+fs::Array	/home/ngphuoc/git/deepr/utils.jl	/^(fs::Array)(x...;kw...) = map(f->f(x...; kw...), fs)$/;"	f	language:julia
+getindex	/home/ngphuoc/git/deepr/utils.jl	/^function getindex(A::KnetArray{T,3}, ::Colon, ::Colon, I::Index3) where T$/;"	f	language:julia
+getindex	/home/ngphuoc/git/deepr/utils.jl	/^function getindex(x::KnetArray{T,3}, i::Colon, j, k) where T$/;"	f	language:julia
+getindex	/home/ngphuoc/git/deepr/utils.jl	/^function getindex(x::KR{T,4}, ::Colon, J::Int64, ::Colon, ::Colon) where T$/;"	f	language:julia
+getindex	/home/ngphuoc/git/deepr/utils.jl	/^getindex(x::KnetArray, ::Colon, ::Colon, ::Colon) = x # fix ambiguity with method in rnn.jl$/;"	f	language:julia
+join_episode	/home/ngphuoc/git/deepr/deepr2.jl	/^join_episode(x) = vcat(split.(x)...)$/;"	f	language:julia
+leftpad	/home/ngphuoc/git/deepr/deepr2.jl	/^function leftpad(x::AbstractVector, p, t=length(x)+1; truncate=true)$/;"	f	language:julia
+loss	/home/ngphuoc/git/deepr/deepr2.jl	/^loss(x, y) = nll(m(x), y)$/;"	f	language:julia
+pool1	/home/ngphuoc/git/deepr/utils.jl	/^pool1(x) = Knet.pool(x; window=size(x)[1:2])$/;"	f	language:julia
+remove_empty	/home/ngphuoc/git/deepr/deepr2.jl	/^remove_empty(x) = filter(x->!isempty(x), x)$/;"	f	language:julia
+setindex!	/home/ngphuoc/git/deepr/utils.jl	/^function setindex!(x::KnetArray{T,3}, y, ::Colon, ::Colon, I::Index3) where T$/;"	f	language:julia
+setindex!	/home/ngphuoc/git/deepr/utils.jl	/^function setindex!(x::KnetArray{T,3}, y, c::Colon, j, k) where T$/;"	f	language:julia
+setindex!	/home/ngphuoc/git/deepr/utils.jl	/^function setindex!(x::KR{T,4}, y, ::Colon, J::Int64, ::Colon, ::Colon) where T$/;"	f	language:julia
