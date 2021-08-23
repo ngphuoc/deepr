@@ -1,26 +1,114 @@
-!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
-a::Embed	/home/ngphuoc/git/deepr/utils.jl	/^(a::Embed)(x) = a.W[:,x]$/;"	f	language:julia
-Base.getindex	/home/ngphuoc/git/deepr/utils.jl	/^Base.getindex(c::Chain, i::AbstractArray) = Chain(c.layers[i]...)$/;"	f	language:julia
-c::Chain	/home/ngphuoc/git/deepr/utils.jl	/^(c::Chain)(x) = foldl((x, m) -> m(x), c.layers; init = x)$/;"	f	language:julia
-Chain	/home/ngphuoc/git/deepr/utils.jl	/^  Chain(xs...) = new([xs...])$/;"	f	language:julia
-Chain	/home/ngphuoc/git/deepr/utils.jl	/^struct Chain$/;"	f	language:julia
-Conv	/home/ngphuoc/git/deepr/utils.jl	/^struct Conv{F,A,V}$/;"	f	language:julia
-Dense	/home/ngphuoc/git/deepr/utils.jl	/^Dense(W, b) = Dense(W, b, identity)$/;"	f	language:julia
-Dense	/home/ngphuoc/git/deepr/utils.jl	/^function Dense(in::Integer, out::Integer, σ = identity)$/;"	f	language:julia
-Dense	/home/ngphuoc/git/deepr/utils.jl	/^struct Dense{F,S,T}$/;"	f	language:julia
-Embed	/home/ngphuoc/git/deepr/utils.jl	/^Embed(in::Integer, out::Integer) = Embed(param(out, in))$/;"	f	language:julia
-Embed	/home/ngphuoc/git/deepr/utils.jl	/^struct Embed{T}$/;"	f	language:julia
-for	/home/ngphuoc/git/deepr/deepr2.jl	/^  for (x,y)=dr$/;"	f	language:julia
-fs::Array	/home/ngphuoc/git/deepr/utils.jl	/^(fs::Array)(x...;kw...) = map(f->f(x...; kw...), fs)$/;"	f	language:julia
-getindex	/home/ngphuoc/git/deepr/utils.jl	/^function getindex(A::KnetArray{T,3}, ::Colon, ::Colon, I::Index3) where T$/;"	f	language:julia
-getindex	/home/ngphuoc/git/deepr/utils.jl	/^function getindex(x::KnetArray{T,3}, i::Colon, j, k) where T$/;"	f	language:julia
-getindex	/home/ngphuoc/git/deepr/utils.jl	/^function getindex(x::KR{T,4}, ::Colon, J::Int64, ::Colon, ::Colon) where T$/;"	f	language:julia
-getindex	/home/ngphuoc/git/deepr/utils.jl	/^getindex(x::KnetArray, ::Colon, ::Colon, ::Colon) = x # fix ambiguity with method in rnn.jl$/;"	f	language:julia
-join_episode	/home/ngphuoc/git/deepr/deepr2.jl	/^join_episode(x) = vcat(split.(x)...)$/;"	f	language:julia
-leftpad	/home/ngphuoc/git/deepr/deepr2.jl	/^function leftpad(x::AbstractVector, p, t=length(x)+1; truncate=true)$/;"	f	language:julia
-loss	/home/ngphuoc/git/deepr/deepr2.jl	/^loss(x, y) = nll(m(x), y)$/;"	f	language:julia
-pool1	/home/ngphuoc/git/deepr/utils.jl	/^pool1(x) = Knet.pool(x; window=size(x)[1:2])$/;"	f	language:julia
-remove_empty	/home/ngphuoc/git/deepr/deepr2.jl	/^remove_empty(x) = filter(x->!isempty(x), x)$/;"	f	language:julia
-setindex!	/home/ngphuoc/git/deepr/utils.jl	/^function setindex!(x::KnetArray{T,3}, y, ::Colon, ::Colon, I::Index3) where T$/;"	f	language:julia
-setindex!	/home/ngphuoc/git/deepr/utils.jl	/^function setindex!(x::KnetArray{T,3}, y, c::Colon, j, k) where T$/;"	f	language:julia
-setindex!	/home/ngphuoc/git/deepr/utils.jl	/^function setindex!(x::KR{T,4}, y, ::Colon, J::Int64, ::Colon, ::Colon) where T$/;"	f	language:julia
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+>	utils.jl	/^macro >(exs...)$/;"	f
+>=	utils.jl	/^macro >=(x, exs...)$/;"	f
+B	2017/deepr2.jl	/^B        = 30  # batch_size$/;"	v
+DROP	2017/deepr2.jl	/^DROP     = 0.5$/;"	v
+E	2017/deepr2.jl	/^E        = 32  # embedding size$/;"	v
+EPOCH	2017/deepr2.jl	/^EPOCH    = 50$/;"	v
+EPS	2017/deepr2.jl	/^EPS      = 1e-5$/;"	v
+F	2017/deepr2.jl	/^F        = 20  # number of filter$/;"	v
+FOLD	2017/deepr2.jl	/^FOLD     = 5$/;"	v
+H	2017/deepr2.jl	/^H        = 64  # hidden size$/;"	v
+L1	2017/deepr2.jl	/^L1       = 0.0$/;"	v
+L1	deepr.jl	/^L1       = 0.0$/;"	v
+L2	2017/deepr2.jl	/^L2       = 0.0$/;"	v
+L2	deepr.jl	/^L2       = 0.0$/;"	v
+LR	2017/deepr2.jl	/^LR       = 1e-2$/;"	v
+LR	deepr.jl	/^LR       = 1e-2  # learning rate$/;"	v
+N	2017/deepr2.jl	/^N = size(x)[end] ÷ B * B$/;"	v
+N	deepr.jl	/^N = size(x)[end] ÷ batchsize * batchsize$/;"	v
+PAD	2017/deepr2.jl	/^PAD = 1$/;"	v
+PAD	deepr.jl	/^PAD = 1$/;"	v
+SEED	2017/deepr2.jl	/^SEED     = 1$/;"	v
+SEED	deepr.jl	/^SEED     = 1$/;"	v
+T	2017/deepr2.jl	/^T        = 100  # maximum length$/;"	v
+Ws	2017/deepr2.jl	/^Ws       = [10,20,30]  # filters' size$/;"	v
+X	2017/deepr2.jl	/^X = length(vx)$/;"	v
+Y	2017/deepr2.jl	/^Y = 2$/;"	v
+accuracy	deepr.jl	/^accuracy(ŷ, y) = mean(onecold(ŷ, labels) .== onecold(y, labels))$/;"	f
+accuracy	utils.jl	/^accuracy(x, y, m) = mean(onecold(cpu(m(x))) .== onecold(cpu(y)))$/;"	f
+accuracy	utils.jl	/^function accuracy(d, m)$/;"	f
+batchsize	deepr.jl	/^batchsize        = 30  # batch_size$/;"	v
+call	utils.jl	/^call(f, x) = f(x)$/;"	f
+callex	utils.jl	/^  callex(head, f, x, xs...) = ex = :_ in xs ? Expr(:call, Expr(head, f, xs...), x) : Expr(head, f, x, xs...)$/;"	f
+cats	utils.jl	/^cats(xs; dims=ndims(xs[1])+1) = cat(xs..., dims=dims)$/;"	f
+copystruct!	utils.jl	/^function copystruct!(a::T, b::U) where {T, U}$/;"	f
+dr	2017/deepr2.jl	/^dr = minibatch(xr, yr, B)$/;"	v
+dt	2017/deepr2.jl	/^dt = minibatch(xr, yr, B)$/;"	v
+embed_size	deepr.jl	/^embed_size        = 32  # embedding size$/;"	v
+epoch	deepr.jl	/^epoch = 1$/;"	v
+epochs	deepr.jl	/^epochs    = 5$/;"	v
+extract	utils.jl	/^macro extract(m, vs)$/;"	f
+filters	deepr.jl	/^filters        = 20  # number of filter$/;"	v
+fold	2017/deepr2.jl	/^fold = 1$/;"	v
+fold	deepr.jl	/^fold = 1$/;"	v
+folds	deepr.jl	/^folds     = 5$/;"	v
+for	2017/deepr2.jl	/^  for (x,y)=dr$/;"	f
+for	deepr.jl	/^    for (x, y) = trainset$/;"	f
+globalmaxpool	deepr.jl	/^globalmaxpool(x) = maxpool(x, size(x)[1:2])$/;"	f
+hidden	deepr.jl	/^hidden        = 64  # hidden size$/;"	v
+i	2017/deepr2.jl	/^i = 100$/;"	v
+ir	2017/deepr2.jl	/^ir = setdiff(1:N)$/;"	v
+ir	deepr.jl	/^ir = setdiff(1:N)$/;"	v
+it	2017/deepr2.jl	/^it = fold:5:N$/;"	v
+it	deepr.jl	/^it = fold:5:N$/;"	v
+join_episode	2017/deepr2.jl	/^join_episode(x) = vcat(split.(x)...)$/;"	f
+join_episode	deepr.jl	/^join_episode(x) = vcat(split.(x)...)$/;"	f
+kernels	deepr.jl	/^kernels       = [10,20,30]  # filters' size$/;"	v
+klqnormal	utils.jl	/^klqnormal((μ, ρ)) = klqnormal(μ, ρ)$/;"	f
+klqp	utils.jl	/^klqp((μ₁, ρ₁), (μ₂, ρ₂)) = sum(@. 0.5f0(exp(ρ₁ - ρ₂) + (μ₁ - μ₂)^2\/exp(ρ₂) - 1 - (ρ₁ - ρ₂))) \/ size(μ₁)[end]$/;"	f
+labels	deepr.jl	/^const labels = [0, 1]$/;"	v
+leftpad	2017/deepr2.jl	/^function leftpad(x::AbstractVector, p, t=length(x)+1; truncate=true)$/;"	f
+leftpad	deepr.jl	/^function leftpad(x::AbstractVector, p, t=length(x)+1; truncate=true)$/;"	f
+loss	2017/deepr2.jl	/^loss(x, y) = nll(m(x), y)$/;"	f
+loss	deepr.jl	/^loss(x, y) = Flux.Losses.logitcrossentropy(model(x), y)$/;"	f
+m	2017/deepr2.jl	/^m = Chain($/;"	v
+max_length	deepr.jl	/^max_length        = 100  # maximum length$/;"	v
+model	deepr.jl	/^model = Chain($/;"	v
+normal	utils.jl	/^const normal = sampleμσ$/;"	v
+optimizer	2017/deepr2.jl	/^optimizer=Adam()$/;"	v
+optimizer	deepr.jl	/^optimizer = ADAM()$/;"	v
+output_size	deepr.jl	/^output_size = 2  # number of classes to predict, binary$/;"	v
+pdrop	deepr.jl	/^pdrop     = 0.5$/;"	v
+predictall	deepr.jl	/^function predictall(model, testset)$/;"	f
+ps	2017/deepr2.jl	/^ps = m$/;"	v
+ps	2017/deepr2.jl	/^ps = params(m)$/;"	v
+ps	deepr.jl	/^ps = params(model)$/;"	v
+remove_empty	2017/deepr2.jl	/^remove_empty(x) = filter(x->!isempty(x), x)$/;"	f
+remove_empty	deepr.jl	/^remove_empty(x) = filter(x->!isempty(x), x)$/;"	f
+reparameterize	utils.jl	/^reparameterize(μ, σ, sampling=Flux.istraining()) = sampling ? sampleμσ(μ, σ) : μ$/;"	f
+samplegauss	utils.jl	/^const samplegauss = sampleμρ$/;"	v
+sampleμlv	utils.jl	/^const sampleμlv = sampleμρ$/;"	v
+sampleμρ	utils.jl	/^sampleμρ(μ, lv) = sampleμσ(μ, exp.(0.5f0lv))$/;"	f
+test	deepr.jl	/^function test(testset)$/;"	f
+testset	deepr.jl	/^testset = DataLoader((xtest, ytest), batchsize=batchsize) |> gpu$/;"	v
+thread	utils.jl	/^  thread(x) = isexpr(x, :block) ? thread(rmlines(x).args...) : x$/;"	f
+thread	utils.jl	/^  thread(x, ex) =$/;"	f
+thread	utils.jl	/^  thread(x, exs...) = reduce(thread, exs, init=x)$/;"	f
+train	deepr.jl	/^function train(epoch)$/;"	f
+trainset	deepr.jl	/^trainset = DataLoader((xtrain, ytrain), batchsize=batchsize) |> gpu$/;"	v
+uniform!	utils.jl	/^function uniform!(x, a, b)$/;"	f
+vocab_size	deepr.jl	/^vocab_size = length(vx)  # length of vocab$/;"	v
+vx	2017/deepr2.jl	/^vx = @> vcat(x...) unique sort$/;"	v
+vx	deepr.jl	/^vx = @> vcat(x...) unique sort  # shorten the vocab if possible$/;"	v
+x	2017/deepr2.jl	/^x = @> x indexin.([vx])$/;"	v
+x	2017/deepr2.jl	/^x = ds$/;"	v
+x	2017/deepr2.jl	/^x = hcat(x...)$/;"	v
+x	2017/deepr2.jl	/^x = x2$/;"	v
+x	deepr.jl	/^x = @> x indexin.([vx])$/;"	v
+x	deepr.jl	/^x = ds  # use diagnoses as inputs$/;"	v
+x	deepr.jl	/^x = hcat(x...)$/;"	v
+x	deepr.jl	/^x = x2$/;"	v
+x,y	2017/deepr2.jl	/^x,y = example = first(dr)$/;"	v
+x2	2017/deepr2.jl	/^x2 = @> x join_episode.() remove_empty.() leftpad.("PAD", 100)$/;"	v
+x2	deepr.jl	/^x2 = @> x join_episode.() remove_empty.() leftpad.("PAD", 100)$/;"	v
+xs,ys	2017/deepr2.jl	/^xs,ys = x, y_unplan$/;"	v
+y	2017/deepr2.jl	/^y = Int.(y_unplan) .+ 1$/;"	v
+y	deepr.jl	/^y = @> onehotbatch(y_unplan, labels) Float32.() gpu$/;"	v
+zips	utils.jl	/^zips(a::T) where {T<:Tuple} = map(t-> map(x->x[t], a), 1:length(first(a)))$/;"	f
+zips	utils.jl	/^zips(a::Vector{<:Tuple}) = tuple(map(t-> map(x->x[t], a), 1:length(first(a)))...)$/;"	f
