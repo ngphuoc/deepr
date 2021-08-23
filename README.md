@@ -7,20 +7,29 @@ JLD2.@load "./mimic3.pidxyy_unplanvdvp.jld2" pid x y y_unplan vd vp
 ```
 
 ### DATA STRUCTURE
+
 `x`:  medical records of all patients
+
 `x[1]`:  medical records of 1st patients: list of diagnoses and procedures
+
 `x[1][1]`:  list of diagnoses in each episode
+
 `x[1][2]`:  list of procedures in each episode
 
 `pid`:  patient id
 
 ### Coding abbreviation
+
 `p·9962`: Procedure 9962. Heart countershock NEC
+
 `d·87`: Diagnosis Code V87: Contact with and (suspected) exposure to other potentially hazardous chemicals
 
 `y`:  not use
+
 `y_unplan`:  to be predicted: Boolean vector of unplanned readmission in 6 months
+
 `vd`:  list of all diagnosis codes
+
 `vp`:  list of all procedure codes
 
 ### Example Model
